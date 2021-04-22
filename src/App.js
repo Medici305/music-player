@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Song from "./components/Song";
 import Player from "./components/Player";
 import Library from "./components/Library";
+import Nav from "./components/Nav";
 import data from "./util";
 import "./styles/app.scss";
 
@@ -18,6 +19,7 @@ function App() {
     currentTime: 0,
     duration: 0,
   });
+  const [libraryStatus, setLibraryStatus] = useState(false);
 
   // Functions
   const timeUpdateHandler = (e) => {
@@ -28,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      <Nav setLibraryStatus={setLibraryStatus} libraryStatus={libraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         audioRef={audioRef}
@@ -36,6 +39,8 @@ function App() {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
+        songs={songs}
       />
       <Library
         songs={songs}
@@ -43,6 +48,7 @@ function App() {
         isPlaying={isPlaying}
         setSongs={setSongs}
         audioRef={audioRef}
+        libraryStatus={libraryStatus}
       />
       <audio
         ref={audioRef}

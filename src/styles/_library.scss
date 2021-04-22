@@ -6,6 +6,10 @@
   width: 20rem;
   box-shadow: 2px 2px 50px gray;
   overflow-y: scroll;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  background: #fff;
   h2 {
     padding: 2rem 1rem;
   }
@@ -25,6 +29,11 @@
     object-fit: cover;
   }
   .song-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 3rem;
     margin-left: 1rem;
     h3 {
       font-size: 1rem;
