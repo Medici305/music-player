@@ -48,3 +48,11 @@ h3 {
   transform: translateX(0);
   opacity: 1;
 }
+
+.app {
+  transition: all 0.5s ease-in-out;
+}
+
+.library-active {
+  margin-left: 20%;
+}

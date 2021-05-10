@@ -10,14 +10,9 @@ const LibrarySongs = ({
   audioRef,
 }) => {
   // Functions
-  const songSelectHandler = () => {
-    setCurrentSong(song);
-    const playPromise = audioRef.current.play();
-    if (playPromise) {
-      playPromise.then((audio) => {
-        audioRef.current.play();
-      });
-    }
+  const songSelectHandler = async () => {
+    await setCurrentSong(song);
+    if (isPlaying) audioRef.current.play();
     const newSong = songs.map((song) => {
       if (song.id === id) {
         return {
